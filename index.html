@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة نتائج الطلاب</title>
+<meta name="author" content="سامية وحيد شعبان - 2302572">
+<meta name="description" content="لوحة تحليل نتائج الطلاب بالكلاسات ودوال المصفوفات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Changa:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#ff5d8f"/><path d="M12 30l12-14 12 14M17 34h14" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>لوحة نتائج<br>الطلاب</h1>
+    <nav>
+      <a href="#overview">نظرة عامة</a>
+      <a href="#table">كشف الدرجات</a>
+      <a href="#mercy">لجنة الرأفة</a>
+      <a href="#add">إضافة طالب</a>
+      <a href="#log">الـ Console</a>
+    </nav>
+    <div class="author"><span>إعداد</span><b>سامية وحيد شعبان</b><span>الرقم الجامعي</span><b>2302572</b></div>
+  </aside>
+
+  <main>
+    <section id="overview" class="top">
+      <div>
+        <h2>ملخص الدفعة</h2>
+        <p class="sub">نتائج مبنية على <code>reduce</code> و<code>filter</code> و<code>map</code> مع قواعد النجاح والحضور.</p>
+        <div class="kpis" id="kpis"></div>
+      </div>
+      <figure class="donut"><svg id="donut" viewBox="0 0 120 120" role="img" aria-label="توزيع التقديرات"></svg><figcaption id="legend"></figcaption></figure>
+    </section>
+
+    <section id="table" class="panel">
+      <h2>كشف الدرجات</h2>
+      <div class="scroll"><table>
+        <thead><tr><th>الطالبة</th><th>الدرجات</th><th>الحضور</th><th>المتوسط</th><th>التقدير</th><th>النتيجة</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </section>
+
+    <section id="mercy" class="panel mercy">
+      <div class="mh"><div><h2>لجنة الرأفة</h2><p class="sub">الطلاب بمتوسط 40–49 يحصلون على درجات دعم.</p></div>
+      <label>الدعم <input type="range" id="bonus" min="0" max="10" value="5"><output id="bonusOut">5</output></label></div>
+      <div id="mbars"></div>
+      <p class="mavg">متوسط المتعثرين بعد التعديل: <strong id="mavg">0.00</strong></p>
+    </section>
+
+    <section class="two">
+      <form id="add" class="panel">
+        <h2>إضافة طالب</h2>
+        <label>رقم الجلوس<input name="id" type="number" required></label>
+        <label>الاسم<input name="name" maxlength="40" required></label>
+        <div class="trio"><input name="a" type="number" min="0" max="100" placeholder="مادة 1" required><input name="b" type="number" min="0" max="100" placeholder="مادة 2" required><input name="c" type="number" min="0" max="100" placeholder="مادة 3" required></div>
+        <label>الحضور %<input name="att" type="number" min="0" max="100" required></label>
+        <button>حفظ الطالب</button>
+      </form>
+      <div id="log" class="panel"><h2>Console</h2><pre id="out" tabindex="0"></pre></div>
+    </section>
+  </main>
+</div>
+<script src="script.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
